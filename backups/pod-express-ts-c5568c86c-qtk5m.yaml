@@ -1,0 +1,262 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  generateName: express-ts-c5568c86c-
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "",
+          "interface": "eth0",
+          "ips": [
+              "10.128.24.83"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "",
+          "interface": "eth0",
+          "ips": [
+              "10.128.24.83"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, memory request for container express-ts; cpu,
+      memory limit for container express-ts
+    openshift.io/generated-by: OpenShiftNewApp
+    openshift.io/scc: restricted
+  selfLink: /api/v1/namespaces/rm343639/pods/express-ts-c5568c86c-qtk5m
+  resourceVersion: '98844067'
+  name: express-ts-c5568c86c-qtk5m
+  uid: cb745310-f618-4502-9556-d816df244e8e
+  creationTimestamp: '2022-07-15T21:59:35Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2022-07-15T21:59:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deployment': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"2dcf4b2a-872d-45dc-b4bb-df61a4d32f10"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"express-ts"}':
+              .: {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":3000,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2022-07-15T21:59:37Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2022-07-15T22:02:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.128.24.83"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+  namespace: rm343639
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: express-ts-c5568c86c
+      uid: 2dcf4b2a-872d-45dc-b4bb-df61a4d32f10
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: express-ts
+    deployment: express-ts
+    pod-template-hash: c5568c86c
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: default-dockercfg-xx569
+  priority: 0
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: ip-10-0-182-176.us-east-2.compute.internal
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c64,c4'
+    fsGroup: 1004040000
+  containers:
+    - resources:
+        limits:
+          cpu: 1500m
+          memory: 2Gi
+        requests:
+          cpu: 5m
+          memory: 50Mi
+      terminationMessagePath: /dev/termination-log
+      name: express-ts
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - SETGID
+            - SETUID
+        runAsUser: 1004040000
+      ports:
+        - containerPort: 3000
+          protocol: TCP
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: default-token-r2wvm
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        ghcr.io/leonardoavelino/express-ts@sha256:c07a434f4b6037bc358e6e727319f1037ceb17e92d1f5bcb90172b28d3c61920
+  serviceAccount: default
+  volumes:
+    - name: default-token-r2wvm
+      secret:
+        secretName: default-token-r2wvm
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2022-07-15T21:59:35Z'
+    - type: Ready
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2022-07-15T22:02:35Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [express-ts]'
+    - type: ContainersReady
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2022-07-15T22:02:35Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [express-ts]'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2022-07-15T21:59:35Z'
+  hostIP: 10.0.182.176
+  podIP: 10.128.24.83
+  podIPs:
+    - ip: 10.128.24.83
+  startTime: '2022-07-15T21:59:35Z'
+  containerStatuses:
+    - restartCount: 10
+      started: false
+      ready: false
+      name: express-ts
+      state:
+        waiting:
+          reason: CrashLoopBackOff
+          message: >-
+            back-off 5m0s restarting failed container=express-ts
+            pod=express-ts-c5568c86c-qtk5m_rm343639(cb745310-f618-4502-9556-d816df244e8e)
+      imageID: >-
+        ghcr.io/leonardoavelino/express-ts@sha256:c07a434f4b6037bc358e6e727319f1037ceb17e92d1f5bcb90172b28d3c61920
+      image: >-
+        ghcr.io/leonardoavelino/express-ts@sha256:c07a434f4b6037bc358e6e727319f1037ceb17e92d1f5bcb90172b28d3c61920
+      lastState:
+        terminated:
+          exitCode: 126
+          reason: Error
+          startedAt: '2022-07-15T22:26:03Z'
+          finishedAt: '2022-07-15T22:26:03Z'
+          containerID: >-
+            cri-o://867fd5c9c3e0f32ab94825318c31a338ae4c9c4ad4d2ec79295f6e1aebf36381
+      containerID: 'cri-o://867fd5c9c3e0f32ab94825318c31a338ae4c9c4ad4d2ec79295f6e1aebf36381'
+  qosClass: Burstable
