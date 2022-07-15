@@ -13,5 +13,6 @@ RUN npm ci
 COPY . ./
 RUN npm run build
 RUN npm prune --production
+RUN chmod u+x bin/www
 
 ENTRYPOINT [ "npm", "start" ]
